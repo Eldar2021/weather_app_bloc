@@ -1,9 +1,10 @@
 import 'package:dio/dio.dart';
-import 'package:weather_bloc/constants/rest_api/rest_api_constants.dart';
-import 'package:weather_bloc/data/weather/weather_model/weather_model.dart';
+import '/constants/rest_api/rest_api_constants.dart';
+import '../weather_model/weather_model.dart';
 
 class WeatherRepo {
   final Dio dio = Dio();
+
   Future<WeatherModel> getWeather(String name) async {
     final response = await dio.get(
       "${RestApiConstants.baseUrl}weather?q=$name,&appid=${RestApiConstants.apiKey}",

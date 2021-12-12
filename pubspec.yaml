@@ -42,6 +42,13 @@ dependencies:
   flutter_screenutil: ^5.0.1
   # response api:
   dio: ^4.0.4
+  # snack_bar:
+  top_snackbar_flutter: ^1.0.2
+  # icon data:
+  font_awesome_flutter: ^9.2.0
+  flutter_svg: ^1.0.0
+  # date time format:
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
@@ -66,8 +73,9 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/images/
+    - assets/icons/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

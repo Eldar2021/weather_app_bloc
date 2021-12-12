@@ -21,4 +21,10 @@ class WeatherSuccess extends WeatherState {
   }) : super();
 }
 
-class WeatherError extends WeatherState {}
+class WeatherError extends WeatherState {
+  final String error;
+
+  const WeatherError({
+    required this.error,
+  }) : super();
+}

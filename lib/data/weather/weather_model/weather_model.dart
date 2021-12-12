@@ -1,18 +1,18 @@
 class WeatherModel {
-  final int? idWeather;
+  final num? idWeather;
   final String? main;
   final String? description;
   final String? icon;
   final String? base;
-  final double temp;
-  final double? feelsLike;
-  final double? tempMin;
-  final double? tempMax;
-  final double? speedWind;
-  final int timezone;
-  final int? id;
+  final num temp;
+  final num? feelsLike;
+  final num? tempMin;
+  final num? tempMax;
+  final num? speedWind;
+  final num timezone;
+  final num? id;
   final String name;
-  final int? cod;
+  final num? cod;
 
   WeatherModel({
     this.idWeather,
@@ -37,12 +37,11 @@ class WeatherModel {
       main: json["weather"][0]["main"] ?? "No Data",
       description: json["weather"][0]["description"] ?? "No Data",
       icon: "http://openweathermap.org/img/w/${json["weather"][0]["icon"] ?? "04d"}.png",
-      // icon: json["weather"][0]["icon"] ?? "04d",
       base: json["base"] ?? "stations",
-      temp: json["main"]["temp"] ?? 0,
-      feelsLike: json["main"]["feels_like"] ?? 0,
-      tempMin: json["main"]["temp_min"] ?? 0,
-      tempMax: json["main"]["temp_max"] ?? 0,
+      temp: json["main"]["temp"] - 273 ?? 0,
+      feelsLike: json["main"]["feels_like"] - 273.15 ?? 0,
+      tempMin: json["main"]["temp_min"] - 273.15 ?? 0,
+      tempMax: json["main"]["temp_max"] - 273.15 ?? 0,
       speedWind: json["wind"]["speed"] ?? 0,
       timezone: json["timezone"] ?? 0,
       id: json["id"] ?? 0,

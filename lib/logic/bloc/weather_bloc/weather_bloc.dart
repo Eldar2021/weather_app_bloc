@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:weather_bloc/data/weather/repositories/weather_repository.dart';
-import 'package:weather_bloc/data/weather/weather_model/weather_model.dart';
+import '/data/weather/repositories/weather_repository.dart';
+import '/data/weather/weather_model/weather_model.dart';
 
 part 'weather_event.dart';
 
@@ -25,7 +25,7 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
           await weatherRepo.getWeather(event.cityName);
       emit(WeatherSuccess(weatherModel: weatherModel));
     } catch (e) {
-      emit(WeatherError());
+      emit(WeatherError(error: e.toString()));
     }
   }
 
@@ -39,7 +39,7 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
           await weatherRepo.getWeather(event.cityName);
       emit(WeatherSuccess(weatherModel: weatherModel));
     } catch (e) {
-      emit(WeatherError());
+      emit(WeatherError(error: e.toString()));
     }
   }
 }
