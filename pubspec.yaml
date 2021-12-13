@@ -49,6 +49,8 @@ dependencies:
   flutter_svg: ^1.0.0
   # date time format:
   intl: ^0.17.0
+  # device location:
+  geolocator: ^8.0.0
 
 dev_dependencies:
   flutter_test:

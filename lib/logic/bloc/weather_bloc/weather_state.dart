@@ -5,6 +5,8 @@ abstract class WeatherState {
   const WeatherState() : super();
 }
 
+class WeatherInitial extends WeatherState {}
+
 class WeatherLoaded extends WeatherState {
   final String cityName;
 
@@ -28,3 +30,4 @@ class WeatherError extends WeatherState {
     required this.error,
   }) : super();
 }
+

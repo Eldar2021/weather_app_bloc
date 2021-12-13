@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_bloc/generated/assets.dart';
-import '/data/weather/weather_model/weather_model.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '/data/weather/weather_model/weather_model.dart';
 
 class WeatherSuccessWidget extends StatelessWidget {
   const WeatherSuccessWidget({
@@ -101,7 +101,7 @@ class WeatherSuccessWidget extends StatelessWidget {
                     ),
                     const SizedBox(height: 30.0),
                     Text(
-                      " max ${weather.tempMax?.toStringAsFixed(1)}℃",
+                      "max ${weather.tempMax?.toStringAsFixed(1)}℃",
                       style: textTheme.headline5,
                     ),
                   ],
@@ -109,7 +109,7 @@ class WeatherSuccessWidget extends StatelessWidget {
               ),
               Expanded(
                   child: Text(
-                " min  ${weather.tempMin?.toStringAsFixed(1)}℃",
+                "min  ${weather.tempMin?.toStringAsFixed(1)}℃",
                 style: textTheme.headline5,
                 textAlign: TextAlign.right,
               )),

@@ -5,10 +5,20 @@ abstract class WeatherEvent {
   const WeatherEvent() : super();
 }
 
-class FetchWeatherEvent extends WeatherEvent {
+class FetchWeatherEventByLat extends WeatherEvent {
+  final String lat;
+  final String long;
+
+  const FetchWeatherEventByLat({
+    required this.lat,
+    required this.long,
+  }) : super();
+}
+
+class FetchWeatherEventByName extends WeatherEvent {
   final String cityName;
 
-  const FetchWeatherEvent({
+  const FetchWeatherEventByName({
     required this.cityName,
   }) : super();
 }
@@ -20,3 +30,4 @@ class RefreshWeatherEvent extends WeatherEvent {
     required this.cityName,
   }) : super();
 }
+
