@@ -50,7 +50,9 @@ dependencies:
   # date time format:
   intl: ^0.17.0
   # device location:
-  geolocator: ^8.0.0
+  geolocator: ^8.0.1
+  # sliding_up_panel:
+  flutter_swipe_detector: ^1.0.1
 
 dev_dependencies:
   flutter_test:

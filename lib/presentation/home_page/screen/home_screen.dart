@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_swipe_detector/flutter_swipe_detector.dart';
 import 'package:weather_bloc/service/bottom_search.dart';
 import '/presentation/components/snack_bar.dart';
 import '../widgets/internet_dis_connected_widget.dart';
@@ -18,16 +19,24 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final ScrollController _scrollController = ScrollController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context),
-      body: SingleChildScrollView(
-        child: ConstrainedBox(
-          constraints: BoxConstraints(
-            maxHeight: MediaQuery.of(context).size.height * 0.88,
+      body: SwipeDetector(
+        onSwipeUp: () {
+          Search.sourceBottomSheetRespond(context);
+        },
+        child: SingleChildScrollView(
+          controller: _scrollController,
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              maxHeight: MediaQuery.of(context).size.height * 0.88,
+            ),
+            child: _buildBody(context),
           ),
-          child: _buildBody(context),
         ),
       ),
     );

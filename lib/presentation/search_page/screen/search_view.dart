@@ -12,51 +12,68 @@ class SearchView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        FocusManager.instance.primaryFocus?.unfocus();
-      },
+    return Form(
+      key: _formKey,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 18),
         height: MediaQuery.of(context).size.height * 0.90,
-        child: Form(
-          key: _formKey,
-          child: Column(
-            children: <Widget>[
-              const SizedBox(height: 10),
-              TextFormField(
-                decoration: const InputDecoration(
-                  hintText: 'Enter city name',
-                ),
-                controller: _controller,
-                onChanged: (val) {
-                  context.read<SearchCubit>().onSearch(val);
-                },
-                validator: (val) {
-                  if (val!.isEmpty) {
-                    return "required this is form";
-                  } else {
-                    return null;
-                  }
-                },
-              ),
-              const SizedBox(height: 10),
-              buildBlocBuilder(),
-              ElevatedButton(
-                onPressed: () async{
-                  if (_formKey.currentState!.validate()){
-                    context.read<WeatherBloc>().add(
-                          FetchWeatherEventByName(cityName: _controller.text),
-                        );
-                    Navigator.pop(context);
-                  }
-                },
-                child: const Text("search"),
-              )
-            ],
-          ),
+        child: Scaffold(
+          appBar: _buildAppBar(context),
+          backgroundColor: Colors.transparent,
+          body: _buildBody(context),
         ),
       ),
+    );
+  }
+
+  Column _buildBody(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        buildBlocBuilder(),
+        _elevatedButton(context, "search"),
+      ],
+    );
+  }
+
+  ElevatedButton _elevatedButton(BuildContext context, String text) {
+    return ElevatedButton(
+      onPressed: () async {
+        if (_formKey.currentState!.validate()) {
+          context.read<WeatherBloc>().add(FetchWeatherEventByName(
+                cityName: _controller.text,
+              ));
+          Navigator.pop(context);
+        }
+      },
+      style: ElevatedButton.styleFrom(padding: const EdgeInsets.all(0)),
+      child: Text(text),
+    );
+  }
+
+  AppBar _buildAppBar(BuildContext context) {
+    return AppBar(
+        backgroundColor: Colors.transparent,
+        title: TextFormField(
+          decoration: const InputDecoration(
+            hintText: 'Enter city name',
+          ),
+          controller: _controller,
+          onChanged: (val) {
+            context.read<SearchCubit>().onSearch(val);
+          },
+          validator: (val) {
+            if (val!.isEmpty) {
+              return "required this is form";
+            } else {
+              return null;
+            }
+          },
+        ),
+        centerTitle: true,
+        leading:  Padding(
+          padding: const EdgeInsets.all(6.0),
+          child: _elevatedButton(context, "ok"),
+        ),
     );
   }
 

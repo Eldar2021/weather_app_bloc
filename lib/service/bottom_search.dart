@@ -12,6 +12,7 @@ class Search {
       ),
       backgroundColor: Colors.black,
       barrierColor: Colors.transparent,
+      isDismissible: true,
       context: context,
       isScrollControlled: true,
       builder: (context) => const SearchPage(),
