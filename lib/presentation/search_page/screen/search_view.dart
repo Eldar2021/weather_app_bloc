@@ -52,28 +52,40 @@ class SearchView extends StatelessWidget {
 
   AppBar _buildAppBar(BuildContext context) {
     return AppBar(
-        backgroundColor: Colors.transparent,
-        title: TextFormField(
-          decoration: const InputDecoration(
-            hintText: 'Enter city name',
-          ),
-          controller: _controller,
-          onChanged: (val) {
-            context.read<SearchCubit>().onSearch(val);
-          },
-          validator: (val) {
-            if (val!.isEmpty) {
-              return "required this is form";
-            } else {
-              return null;
-            }
-          },
+      backgroundColor: Colors.transparent,
+      // title: Autocomplete<RegionModel>(
+      //   optionsBuilder: (options) {
+      //     // debugPrint(options.text);
+      //     if (options.text.isEmpty || options.text == "") {
+      //       return [];
+      //     }
+      //     return regions.where((e) {
+      //       return e.enName.toLowerCase().contains(options.text.toLowerCase());
+      //     });
+      //   },
+      //   displayStringForOption: (region) => region.enName,
+      // ),
+      title: TextFormField(
+        decoration: const InputDecoration(
+          hintText: 'Enter city name',
         ),
-        centerTitle: true,
-        leading:  Padding(
-          padding: const EdgeInsets.all(6.0),
-          child: _elevatedButton(context, "ok"),
-        ),
+        controller: _controller,
+        onChanged: (val) {
+          context.read<SearchCubit>().onSearch(val);
+        },
+        validator: (val) {
+          if (val!.isEmpty) {
+            return "required this is form";
+          } else {
+            return null;
+          }
+        },
+      ),
+      centerTitle: true,
+      leading: Padding(
+        padding: const EdgeInsets.all(6.0),
+        child: _elevatedButton(context, "ok"),
+      ),
     );
   }
 
