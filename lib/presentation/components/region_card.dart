@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '/constants/color/color.dart';
 import '/data/kg_region/region_model.dart';
 
 class RegionCard extends StatelessWidget {
@@ -15,10 +16,10 @@ class RegionCard extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       margin: const EdgeInsets.only(top: 10),
       decoration: BoxDecoration(
-        color: const Color(0xff000000),
+        color: AppColor.scaffoldBack,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: const Color(0xffFFFFFF),
+          color: AppColor.whiteColor,
         ),
       ),
       child: Column(

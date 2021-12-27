@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '/constants/color/color.dart';
 
 class InterNetDisConnectedWidget extends StatelessWidget {
   const InterNetDisConnectedWidget({
@@ -11,7 +12,7 @@ class InterNetDisConnectedWidget extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.only(top: 7, bottom: 7),
       decoration: const BoxDecoration(
-        color: Colors.red,
+        color: AppColor.redColor,
       ),
       child: const Center(
         child: Text("Интернет байланышында ката бар"),

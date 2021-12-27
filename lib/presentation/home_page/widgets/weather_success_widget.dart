@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
-import 'package:weather_bloc/generated/assets.dart';
+import '/generated/assets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '/data/weather/weather_model/weather_model.dart';
 

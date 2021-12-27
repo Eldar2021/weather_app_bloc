@@ -2,6 +2,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:weather_bloc/constants/color/color.dart';
 import '/data/weather/repositories/weather_repository.dart';
 import '/logic/bloc/internet_bloc/internet_bloc.dart';
 import '/logic/bloc/weather_bloc/weather_bloc.dart';
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
           child: MaterialApp(
             title: 'Material App',
             theme: ThemeData.dark().copyWith(
-              scaffoldBackgroundColor: const Color(0xff000000),
+              scaffoldBackgroundColor: AppColor.scaffoldBack,
             ),
             debugShowCheckedModeBanner: false,
             onGenerateRoute: AppRoute().onGenerateRoute,

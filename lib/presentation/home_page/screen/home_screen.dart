@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_swipe_detector/flutter_swipe_detector.dart';
-import 'package:weather_bloc/service/bottom_search.dart';
+import '/constants/color/color.dart';
+import '/service/bottom_search.dart';
 import '/presentation/components/snack_bar.dart';
 import '../widgets/internet_dis_connected_widget.dart';
 import '/logic/bloc/internet_bloc/internet_bloc.dart';
@@ -50,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
       decoration: BoxDecoration(
           image: DecorationImage(
         colorFilter: ColorFilter.mode(
-          const Color(0xff000000).withOpacity(0.8),
+          AppColor.scaffoldBack.withOpacity(0.8),
           BlendMode.dstATop,
         ),
         image: const AssetImage(Assets.imagesBg),
